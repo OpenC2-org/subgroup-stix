@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:URIObject="http://cybox.mitre.org/objects#URIObject-2"
+    xmlns:specifiers="http://www.example.org/openc2_stix_coa-specifiers"
+	targetNamespace="http://www.example.org/openc2_stix_coa-actions"
+	xmlns:tns="http://www.example.org/openc2_stix_coa-actions"
+	elementFormDefault="qualified"
+	xmlns:coa-core="http://www.example.org/coa-core">
+	
+	<import
+	    schemaLocation="openc2_stix_coa-core.xsd"
+	    namespace="http://www.example.org/coa-core" />
+	<import
+	    schemaLocation="openc2_stix_coa-specifiers.xsd"
+	    namespace="http://www.example.org/openc2_stix_coa-specifiers" />
+	<import
+		schemaLocation="http://cybox.mitre.org/XMLSchema/objects/URI/2.1/URI_Object.xsd"
+		namespace="http://cybox.mitre.org/objects#URIObject-2" />
+
+    <element name="ALLOW" type="tns:AllowActionType"/>
+    
+    <complexType name="AllowActionType">
+    	<complexContent>
+    		<extension base="coa-core:ActionType">
+				<sequence>
+					<element name="on_device" type="specifiers:DataportType" maxOccurs="1"
+						minOccurs="0">
+					</element>
+					
+					<element name="priority" type="tns:PriorityType" maxOccurs="1"
+						minOccurs="0">
+					</element>
+				</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+	<simpleType name="PriorityType">
+		<restriction base="integer">
+			<minInclusive value="0"/>
+			<maxInclusive value="65535"/>
+		</restriction>
+	</simpleType>
+    
+</schema>

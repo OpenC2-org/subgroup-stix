@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+ targetNamespace="http://www.example.org/openc2_stix_coa-specifiers"
+ xmlns:tns="http://www.example.org/openc2_stix_coa-specifiers"
+ elementFormDefault="qualified">
+    <complexType name="DataportType">
+    	<sequence>
+    		<element ref="tns:datapath"></element>
+    		<element ref="tns:dataport"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="datapath" type="string"></element>
+
+    <element name="dataport" type="string"></element>
+
+</schema>
